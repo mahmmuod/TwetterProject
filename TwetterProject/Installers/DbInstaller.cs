@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TwetterProject.Data;
+using TwetterProject.Services;
 
 namespace TwetterProject.Installers
 {
@@ -20,6 +21,8 @@ namespace TwetterProject.Installers
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DataContext>();
+
+            services.AddSingleton<IPostService, PostService>();
         }
     }
 }
